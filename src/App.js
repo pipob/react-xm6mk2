@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.css";
 
+import DeckBuilder from './DeckBuilder'
+
 export default function App() {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :) Hello</p>
+      <DeckBuilder />
     </div>
   );
 }
