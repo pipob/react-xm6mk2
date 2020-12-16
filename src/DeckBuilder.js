@@ -26,7 +26,7 @@ let exg = [
   {cardId: 'exigency-004'},
   {cardId: 'exigency-005'},
   {cardId: 'exigency-006'},
-  {cardId: 'exigency-007'},
+  {cardId: 'exigency-007'}
 ]
 
 export default function DeckBuilder() {
@@ -81,8 +81,8 @@ const DeckList = ({deck}) => {
 }
 
 const SelectAllCard = ({deck,setDeck}) => {
-  const [cardSet, setCardSet] = React.useState('') 
-  let allcards = eval('d4k');
+  const [cardSet, setCardSet] = React.useState('d4k') 
+  let allcards = eval(cardSet);
   return(
     <div class="col-8">
       <CardSetList setCardSet={setCardSet} />
@@ -98,7 +98,7 @@ const CardSetList = ({setCardSet}) => {
   return(
     <div class="col-12">
       <CardSetButton name="Dividing of 4 Kingdoms" setId="d4k" setCardSet={setCardSet}/>
-      <CardSetButton name="Exigency" />
+      <CardSetButton name="Exigency" setId="exg" setCardSet={setCardSet}/>
     </div>
   )
 }
