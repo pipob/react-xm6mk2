@@ -1,12 +1,16 @@
 import React from "react";
 import "./style.css";
-import firebase from "./init-firebase";
+import db from "./init-firebase";
 
 import DeckBuilder from './DeckBuilder'
 
 export default function App() {
   console.log('123');
-  var db = firebase.firestore();
+
+  let db_user = db.collection("users")
+
+
+/*
 
   db.collection("users").add({
       first: "Ada",
@@ -15,7 +19,7 @@ export default function App() {
   })
   .then(function(docRef) { console.log("Document written with ID: ", docRef.id); })
   .catch(function(error) { console.error("Error adding document: ", error); });
-
+*/
   return (
     <div className="container">
       <DeckBuilder />
