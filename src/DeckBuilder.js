@@ -36,7 +36,7 @@ export default function DeckBuilder() {
   },[deck])
 
   return (
-    <div class="row">
+    <div className="row">
       
       <DeckList deck={deck} />
       <SelectAllCard deck={deck} setDeck={setDeck}/>
@@ -63,15 +63,15 @@ const DeckList = ({deck}) => {
   let values = Object.values(cardslist);
 
   return( 
-    <div class="col-3">
+    <div className="col-3">
       <div>
-        <button class="m-1 btn btn-success">Save</button>
-        <button class="m-1 btn btn-secondary">Cancel</button>
+        <button className="m-1 btn btn-success">Save</button>
+        <button className="m-1 btn btn-secondary">Cancel</button>
       </div>
-      <div class="list-group">
+      <div className="list-group">
         { 
           keys.map((cardId,i) => {
-            return(<li class="list-group-item">{cardId+" - "+values[i]}</li>) 
+            return(<li key={cardId} className="list-group-item">{cardId+" - "+values[i]}</li>) 
           })
         }
       </div>
@@ -84,11 +84,11 @@ const SelectAllCard = ({deck,setDeck}) => {
   const [cardSet, setCardSet] = React.useState('d4k') 
   let allcards = eval(cardSet);
   return(
-    <div class="col-9">
+    <div className="col-9">
       <CardSetList setCardSet={setCardSet} />
-      <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      <div className="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
         { allcards.map(card => 
-          <SelectCard card={card} deck={deck} setDeck={setDeck} />) }
+          <SelectCard key={card.cardId} card={card} deck={deck} setDeck={setDeck} />) }
       </div>
     </div>
   )
@@ -96,7 +96,7 @@ const SelectAllCard = ({deck,setDeck}) => {
 
 const CardSetList = ({setCardSet}) => {
   return(
-    <div class="col-12">
+    <div className="col-12">
       <CardSetButton name="Dividing of 4 Kingdoms" setId="d4k" setCardSet={setCardSet}/>
       <CardSetButton name="Exigency" setId="exg" setCardSet={setCardSet}/>
     </div>
@@ -105,7 +105,7 @@ const CardSetList = ({setCardSet}) => {
 
 const CardSetButton = ({name,setId,setCardSet}) => {
   return(
-    <button class="m-1 btn btn-outline-secondary" 
+    <button className="m-1 btn btn-outline-secondary" 
       onClick={() => {
         setCardSet(setId)
       }}>{name}</button>
@@ -120,15 +120,15 @@ const SelectCard = ({card,deck,setDeck}) => {
   let removebutton = (number > 0)?"btn-outline-danger":"btn-outline-secondary"
 
   return(
-    <div class="my-2">
-      <div class="card" >
+    <div className="my-2">
+      <div className="card" >
         <img />
-        <div class="card-body">
+        <div className="card-body">
           <p>{card.cardId}</p>
-          <button class={"mx-1 btn btn-sm "+addbutton} onClick={() => {
+          <button className={"mx-1 btn btn-sm "+addbutton} onClick={() => {
             if(number < max) setDeck([...deck,{cid: 1234679, cardId: card.cardId}])
           }}>Add</button>
-          <button class={"mx-1 btn btn-sm "+removebutton} onClick={() => {
+          <button className={"mx-1 btn btn-sm "+removebutton} onClick={() => {
             let index = deck.findIndex(c => c.cardId == card.cardId)
             if(index>=0) {
               deck.splice(index,1)
