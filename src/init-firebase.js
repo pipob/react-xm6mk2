@@ -1,3 +1,5 @@
+import firebase from "firebase";
+
 const firebaseConfig = {
   apiKey: "AIzaSyD1i2el7AZSTKFzNJ14Oh1HXKlj7vKSN4k",
   authDomain: "smn-react.firebaseapp.com",
@@ -9,16 +11,4 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-var db = firebase.firestore();
-
-db.collection("users").add({
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-})
-.then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch(function(error) {
-    console.error("Error adding document: ", error);
-});
+export default firebase;
