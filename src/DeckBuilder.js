@@ -63,10 +63,10 @@ const DeckList = ({deck}) => {
   let values = Object.values(cardslist);
 
   return( 
-    <div class="col-4">
+    <div class="col-3">
       <div>
-        <button class="btn btn-success">Save</button>
-        <button class="btn btn-secondary">Cancel</button>
+        <button class="m-1 btn btn-success">Save</button>
+        <button class="m-1 btn btn-secondary">Cancel</button>
       </div>
       <div class="list-group">
         { 
@@ -84,7 +84,7 @@ const SelectAllCard = ({deck,setDeck}) => {
   const [cardSet, setCardSet] = React.useState('d4k') 
   let allcards = eval(cardSet);
   return(
-    <div class="col-8">
+    <div class="col-9">
       <CardSetList setCardSet={setCardSet} />
       <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
         { allcards.map(card => 
@@ -105,7 +105,7 @@ const CardSetList = ({setCardSet}) => {
 
 const CardSetButton = ({name,setId,setCardSet}) => {
   return(
-    <button class="btn btn-outline-secondary" 
+    <button class="m-1 btn btn-outline-secondary" 
       onClick={() => {
         setCardSet(setId)
       }}>{name}</button>
@@ -114,16 +114,21 @@ const CardSetButton = ({name,setId,setCardSet}) => {
 
 
 const SelectCard = ({card,deck,setDeck}) => {
+  let max = 4;
+  let number = deck.filter(c => c.cardId == card.cardId).length
+  let addbutton = (number < max)?"btn-outline-primary":"btn-outline-secondary"
+  let removebutton = (number > 0)?"btn-outline-danger":"btn-outline-secondary"
+
   return(
     <div class="my-2">
       <div class="card" >
         <img />
         <div class="card-body">
           <p>{card.cardId}</p>
-          <button class="mx-1 btn btn-sm btn-primary" onClick={() => {
-            setDeck([...deck,{cid: 1234679, cardId: card.cardId}])
+          <button class={"mx-1 btn btn-sm "+addbutton} onClick={() => {
+            if(number < max) setDeck([...deck,{cid: 1234679, cardId: card.cardId}])
           }}>Add</button>
-          <button class="mx-1 btn btn-sm btn-danger" onClick={() => {
+          <button class={"mx-1 btn btn-sm "+removebutton} onClick={() => {
             let index = deck.findIndex(c => c.cardId == card.cardId)
             if(index>=0) {
               deck.splice(index,1)

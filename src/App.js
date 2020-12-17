@@ -5,7 +5,7 @@ import DeckBuilder from './DeckBuilder'
 
 export default function App() {
   return (
-    <div>
+    <div class="container">
       <DeckBuilder />
     </div>
   );
