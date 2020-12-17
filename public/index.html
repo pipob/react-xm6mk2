@@ -5,6 +5,19 @@
 <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
 
-<script></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyD1i2el7AZSTKFzNJ14Oh1HXKlj7vKSN4k",
+  authDomain: "smn-react.firebaseapp.com",
+  projectId: "smn-react",
+  storageBucket: "smn-react.appspot.com",
+  messagingSenderId: "138396078243",
+  appId: "1:138396078243:web:120ae3ee13196a6ce4ef16"
+};
+
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+
+</script>
 
 <div id="root"></div>
