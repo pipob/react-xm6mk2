@@ -50,8 +50,9 @@ export default function App() {
 */
   return (
     <div className="container">
-      <Login setUserId={setUserId}/>
-      <DeckBuilder />
+      { (userId)?<DeckBuilder />:<Login setUserId={setUserId}/> }
+      {
+/*
       <button className="btn btn-success" onClick={() => {
         add()
       }}>Add New Data</button>
@@ -61,6 +62,9 @@ export default function App() {
       <button className="btn btn-warning" onClick={() => {
         get()
       }}>Get Data</button>
+*/
+      }
+
     </div>
   );
 }
