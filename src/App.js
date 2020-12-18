@@ -50,7 +50,11 @@ export default function App() {
 */
   return (
     <div className="container">
-      { (userId)?<DeckBuilder />:<Login setUserId={setUserId}/> }
+      { 
+        (userId)?
+          <DeckBuilder />:
+          <Login setUserId={setUserId}/> 
+      }
       {
 /*
       <button className="btn btn-success" onClick={() => {

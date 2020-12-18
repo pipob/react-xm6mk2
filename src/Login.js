@@ -8,7 +8,7 @@ export default function Login({setUserId}) {
   return(
     <div style={{display: "grid", placeItems: "center", height: '100vh'}}>
       <div className="col-10 d-grid border rounded p-3">
-        <h3>Login</h3>
+        <h3>Login to Test SMN-React</h3>
         <LoginInput type="email" name="email" data={email} setData={setEmail} />
         <LoginInput type="password" name="password" data={password} setData={setPassword} />
         <LoginButton name="login" email={email} password={password} setUserId={setUserId} setStatus={setStatus} /> 
