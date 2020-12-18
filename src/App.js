@@ -3,13 +3,16 @@ import "./style.css";
 //import db from "./init-firebase";
 
 import DeckBuilder from './DeckBuilder'
+import Login from './Login'
 
 export default function App() {
-  console.log('123');
+  const [userId, setUserId] = React.useState('')
+
+  console.log(userId);
 
  // let db_user = db.collection("users")
 
-
+/*
   function add() {
     db.collection("users").add({
         first: "Ada",
@@ -44,9 +47,10 @@ export default function App() {
     })
   }
 
-
+*/
   return (
     <div className="container">
+      <Login setUserId={setUserId}/>
       <DeckBuilder />
       <button className="btn btn-success" onClick={() => {
         add()
