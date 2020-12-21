@@ -4,11 +4,14 @@ import "./style.css";
 
 
 import Login from './Login'
+
+import Menu from './Menu/Menu'
 import Main from './Main'
 
 
 export default function App() {
   const [userId, setUserId] = React.useState('')
+  const [mainId, setMainId] = React.useState('')
 
   console.log(userId);
 
@@ -52,10 +55,10 @@ export default function App() {
 */
   return (
     <div className="container">
-      { 
+        <Menu />
+        //<Main id={mainId} />
         //(userId=='')?<Login setUserId={setUserId}/> :
-          <Main />
-      }
+
       {
 /*
       <button className="btn btn-success" onClick={() => {

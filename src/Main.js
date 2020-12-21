@@ -1,13 +1,17 @@
 import React from "react";
 
 import DeckBuilder from './DeckBuilder'
-import Menu from './Menu'
 
-export default function Main({userId}) { 
+
+export default function Main({id,userId}) { 
+
   return(
     <div>
-      <Menu />
-      <DeckBuilder />
+      <Menu setPageId={setPageId} setMenuwidth={setMenuwidth}/>
+      { 
+       // (id == "play")?<PlayGame />:null
+        (id == "deck")?<DeckBuilder />:null
+      }
     </div>
   )
 }
