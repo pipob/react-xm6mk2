@@ -2,8 +2,10 @@ import React from "react";
 import "./style.css";
 //import db from "./init-firebase";
 
-import DeckBuilder from './DeckBuilder'
+
 import Login from './Login'
+import Main from './Main'
+
 
 export default function App() {
   const [userId, setUserId] = React.useState('')
@@ -51,9 +53,8 @@ export default function App() {
   return (
     <div className="container">
       { 
-        (userId)?
-          <DeckBuilder />:
-          <Login setUserId={setUserId}/> 
+        //(userId=='')?<Login setUserId={setUserId}/> :
+          <Main />
       }
       {
 /*
