@@ -1,29 +1,18 @@
 import React from "react";
 import "./Menu.css";
 
-export default function Menu({userId, setMainId}) { 
-  
+export default function Menu({userId, setPageId}) { 
 
-  let sidenav = {
-    height: '100%',
-    width: '0px'
-  }
-/*
-  let main = {
-    marginLeft : menuWidth
-  }
 
-*/
-  return(
-    
+  return(    
     <div>
-      <h1 onClick={() => {  }}><i class="fas fa-bars"></i></h1>
+      <h1 className="ml-auto" onClick={() => { alert(1) }}><i class="fas fa-bars"></i></h1>
       <nav  > 
-        <ul>
-          <MenuList pageId="play" name="Play Game" setData={setMainId} />
-          <MenuList pageId="deck" name="Deck Builder" setData={setMainId} />
-          <MenuList pageId="friend" name="Friend" setData={setMainId} />
-          <MenuList pageId="quit" name="Quit" setData={setMainId} />
+        <ul class="list-group">
+          <MenuList pageId="play" name="Play Game" icon="fab fa-playstation" setPageId={setPageId} />
+          <MenuList pageId="deck" name="Deck Builder" icon="fas fa-layer-group" setPageId={setPageId} />
+          <MenuList pageId="friend" name="Friend" icon="fas fa-user-friends" setPageId={setPageId} />
+          <MenuList pageId="quit" name="Quit" icon="fas fa-sign-out-alt" setPageId={setPageId} />
 
         </ul>
 
@@ -34,8 +23,8 @@ export default function Menu({userId, setMainId}) {
   )
 }
 
-const MenuList = ({name,pageId,setData}) => {
+const MenuList = ({pageId, name, icon, setPageId}) => {
   return(
-    <li> <a onClick={() => { setData(pageId) }}>{name}</a> </li>
+    <li className="list-group-item"><a onClick={() => { setPageId(pageId) }}><i class={icon}></i> {name}</a> </li>
   )
 }

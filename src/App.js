@@ -53,13 +53,17 @@ export default function App() {
   }
 
 */
+  const [pageId, setPageId] = React.useState('')
+
   return (
     <div className="container">
-        <Menu />
-        //<Main id={mainId} />
+        <Menu userId={userId} setPageId={setPageId} />
+        <Main userId={userId} pageId={pageId} />
+{
+        //
         //(userId=='')?<Login setUserId={setUserId}/> :
 
-      {
+      
 /*
       <button className="btn btn-success" onClick={() => {
         add()
